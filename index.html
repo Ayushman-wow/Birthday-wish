@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Trisha!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&family=Indie+Flower&family=Patrick+Hand&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <!-- Audio Element -->
+  <audio id="bgm" loop>
+    <source src="./assets/taqdeer_bgm.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Click to Start Overlay -->
+  <div id="start-overlay">
+    <div class="overlay-content">
+      <h1>💌</h1>
+      <p>Tap to Open</p>
+    </div>
+  </div>
+
+  <div id="app">
+    <div class="floating-doodles">
+      <img src="./assets/balloons.png" class="doodle balloon-1" alt="balloon" />
+      <img src="./assets/balloons.png" class="doodle balloon-2" alt="balloon" />
+    </div>
+
+    <main class="container">
+      <header class="header">
+        <h1 class="title fade-in">Happy Birthday Trisha!</h1>
+        <img src="./assets/bear_cake.png" alt="Bear with cake" class="hero-bear bounce" />
+      </header>
+
+      <section class="wish-section slide-up">
+        <div class="note-container">
+          <!-- Using the generated paper texture as background via CSS or img if complex, 
+                 but CSS background-image is better for text overlay. -->
+          <div class="note-content">
+            <p class="greeting">Dearest Trisha,</p>
+            <p class="message">
+              Happy Birthday! 🎂✨
+              <br><br>
+              Wishing you a day filled with laughter, joy, and everything beautiful. You bring so much light into the
+              world, seeking nothing but smiles in return. May this year be your best one yet!
+              <br><br>
+              Stay awesome, stay cute, and keep shining!
+            </p>
+            <p class="signature">- Your Friend</p>
+          </div>
+        </div>
+        <img src="./assets/bear_heart.png" alt="Bear with heart" class="decoration-bear float" />
+      </section>
+
+      <section class="gallery-section slide-up delay">
+        <h2>Memories ✨</h2>
+        <div class="gallery-grid" id="gallery">
+          <!-- User can add pictures here -->
+          <div class="photo-card">
+            <img src="./assets/photo1.jpg" alt="Memory 1" />
+          </div>
+          <div class="photo-card">
+            <img src="./assets/photo2.jpg" alt="Memory 2" />
+          </div>
+          <div class="photo-card">
+            <img src="./assets/photo3.jpg" alt="Memory 3" />
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>

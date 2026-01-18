@@ -1,0 +1,310 @@
+@import './overlay.css';
+
+:root {
+  --bg-color: #fff0f5;
+  /* Lavender Blush */
+  --primary-color: #ffb7b2;
+  --secondary-color: #ff9aa2;
+  --text-color: #4a4a4a;
+  --note-bg: #fff9e6;
+  --font-heading: 'Fredoka', sans-serif;
+  --font-hand: 'Indie Flower', cursive;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  background-image: radial-gradient(#ffe4e1 15%, transparent 16%),
+    radial-gradient(#ffe4e1 15%, transparent 16%);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+  font-family: var(--font-heading);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.title {
+  font-size: 3.5rem;
+  color: #ff6f91;
+  text-shadow: 2px 2px 0px #fff;
+  margin-bottom: 10px;
+  font-family: 'Patrick Hand', cursive;
+}
+
+.hero-bear {
+  width: 200px;
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Note Section */
+.wish-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.note-container {
+  background-color: var(--note-bg);
+  /* background-image: url('./assets/note_bg.png');  Optional: Use if texture is desired */
+  background-size: cover;
+  padding: 40px;
+  border-radius: 2px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: rotate(-2deg);
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  border: 1px solid #f0f0f0;
+}
+
+.note-container::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 35px;
+  background-color: rgba(255, 255, 255, 0.4);
+  background: linear-gradient(to bottom right, #ff9aa2 0%, #ffb7b2 100%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0.8;
+  /* Tape look */
+}
+
+.note-content {
+  font-family: var(--font-hand);
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #555;
+  text-align: center;
+}
+
+.greeting {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #e57373;
+}
+
+.signature {
+  margin-top: 20px;
+  margin-right: 10px;
+  font-weight: bold;
+  text-align: right;
+  font-size: 1.4rem;
+  color: #ff6f91;
+}
+
+.decoration-bear {
+  position: absolute;
+  bottom: -30px;
+  right: -20px;
+  width: 120px;
+  transform: rotate(10deg);
+  z-index: 20;
+}
+
+/* Gallery Section */
+.gallery-section {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.gallery-section h2 {
+  font-family: 'Patrick Hand', cursive;
+  color: #ff8a80;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.photo-card {
+  aspect-ratio: 1;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(2deg);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  border: 2px dashed #ffb7b2;
+  color: #aaa;
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-card:nth-child(even) {
+  transform: rotate(-2deg);
+}
+
+.photo-card:hover {
+  transform: scale(1.05) rotate(0);
+  z-index: 5;
+  border-style: solid;
+}
+
+.gallery-note {
+  font-family: var(--font-hand);
+  color: #888;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+/* Doodles */
+.floating-doodles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.doodle {
+  position: absolute;
+  opacity: 0.8;
+}
+
+.balloon-1 {
+  width: 100px;
+  top: 10%;
+  left: 5%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.balloon-2 {
+  width: 80px;
+  top: 20%;
+  right: 5%;
+  animation: float 7s ease-in-out infinite 1s;
+}
+
+/* Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(5deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(-5deg);
+  }
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease-out;
+}
+
+.slide-up {
+  animation: slideUp 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.delay {
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bounce {
+  animation: bounce 2s infinite ease-in-out;
+}
+
+/* Mobile refinements */
+@media (max-width: 600px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .note-container {
+    padding: 25px;
+  }
+
+  .decoration-bear {
+    width: 90px;
+    right: -10px;
+    bottom: -20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
