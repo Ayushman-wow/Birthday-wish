@@ -1,5 +1,6 @@
-import confetti from 'canvas-confetti';
-import './style.css';
+// Imports removed for static deployment compatibility
+// import confetti from 'canvas-confetti';
+// import './style.css';
 
 // Fire confetti on load
 window.addEventListener('load', () => {
